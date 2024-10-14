@@ -38,7 +38,9 @@ public class AdminEmailObject {
         this.body = body;
     }
 
-    public void setId(String id) { this.id = id; }
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getTo() {
         return to;
@@ -48,7 +50,9 @@ public class AdminEmailObject {
         return from;
     }
 
-    public Date getDate() { return date;}
+    public Date getDate() {
+        return date;
+    }
 
     public String getSubject() {
         return subject;
@@ -58,6 +62,8 @@ public class AdminEmailObject {
         return body;
     }
 
-    public String getId() { return id; }
+    public String getId() {
+        return id;
+    }
 
 }

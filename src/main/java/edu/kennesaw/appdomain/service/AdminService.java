@@ -49,9 +49,10 @@ public class AdminService {
         userDTO.getLastName().ifPresentOrElse(user::setLastName, () -> userDTO.setIsIncomplete(true));
         userDTO.getUserType().ifPresentOrElse(user::setUserType, () -> userDTO.setIsIncomplete(true));
 
-        if (userDTO.getIsIncomplete()) throw new UserAttributeMissingException("Missing essential user data attributes.");
+        if (userDTO.getIsIncomplete())
+            throw new UserAttributeMissingException("Missing essential user data attributes.");
 
-        user.setBirthday(userDTO.getBirthday().isPresent() ? userDTO.getBirthday().get(): null);
+        user.setBirthday(userDTO.getBirthday().isPresent() ? userDTO.getBirthday().get() : null);
         user.setAddress(userDTO.getAddress().isPresent() ? userDTO.getAddress().get() : null);
 
         String uuid = UUID.randomUUID().toString();
@@ -140,7 +141,7 @@ public class AdminService {
         User user = userRepository.findByUserid(id);
         user.setIsActive(status);
         userRepository.save(user);
-        return ResponseEntity.ok(new MessageResponse("User: "+ (status ? "activated" : "deactivated") + "successfully"));
+        return ResponseEntity.ok(new MessageResponse("User: " + (status ? "activated" : "deactivated") + "successfully"));
     }
 
 }

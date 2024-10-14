@@ -48,7 +48,8 @@ public class UserService {
     @Autowired
     private AuthenticationManager authenticationManager;
 
-    @Autowired EmailService emailService;
+    @Autowired
+    EmailService emailService;
 
     public ResponseEntity<?> registerUser(RegistrationRequest registrationRequest) {
         User user = new User();
@@ -136,18 +137,18 @@ public class UserService {
 
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                         .body(new MessageResponse("Invalid username or password!")
-                );
+                        );
 
             }
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                     .body(new MessageResponse("This email does not exist in our database!")
-            );
+                    );
 
         } catch (Exception e) {
 
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(new MessageResponse("An error occurred during login")
-            );
+                    );
 
         }
     }

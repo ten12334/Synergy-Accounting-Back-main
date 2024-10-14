@@ -1,6 +1,7 @@
 package edu.kennesaw.appdomain.entity;
 
 import jakarta.persistence.*;
+
 import java.util.Date;
 import java.util.Calendar;
 
@@ -43,18 +44,23 @@ public class EventLog {
     public void setID(Long id) {
         this.id = id;
     }
-    public void setTimestamp(LocalDateTime timestamp){
-        this.timestamp =timestamp;
+
+    public void setTimestamp(LocalDateTime timestamp) {
+        this.timestamp = timestamp;
     }
-    public void setId(String userID){
+
+    public void setId(String userID) {
         this.userID = userID;
     }
-    public void setEventType(String eventType){
+
+    public void setEventType(String eventType) {
         this.eventType = eventType;
     }
-    public void setBeforeImage(String beforeImage){
+
+    public void setBeforeImage(String beforeImage) {
         this.beforeImage = beforeImage;
     }
+
     public void setAfterImage(String afterImage) {
         this.afterImage = afterImage;
     }

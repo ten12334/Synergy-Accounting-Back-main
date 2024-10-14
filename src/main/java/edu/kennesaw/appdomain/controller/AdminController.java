@@ -50,7 +50,7 @@ public class AdminController {
 
     @PreAuthorize("hasRole('ADMINISTRATOR')")
     @PostMapping("/{id}")
-    public ResponseEntity<?> updateStatus(@PathVariable Long id, @RequestParam boolean status){
+    public ResponseEntity<?> updateStatus(@PathVariable Long id, @RequestParam boolean status) {
         return adminService.setActiveStatus(id, status);
     }
 
@@ -90,7 +90,7 @@ public class AdminController {
     @PostMapping("/send-email")
     public ResponseEntity<?> sendAdminEmail(@RequestBody AdminEmailObject aem) {
         emailService.sendAdminEmail(aem.getTo(), aem.getFrom(), aem.getSubject(), aem.getBody());
-        return ResponseEntity.ok().body(new MessageResponse("Email sent.")) ;
+        return ResponseEntity.ok().body(new MessageResponse("Email sent."));
     }
 
     @PreAuthorize("hasRole('ADMINISTRATOR')")
@@ -107,7 +107,8 @@ public class AdminController {
     @PostMapping("/emails/delete")
     public ResponseEntity<?> deleteMail(@RequestBody AdminEmailObject[] emails) {
         if (emails.length == 0) return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Selection is Empty!");
-        if (emailService.deleteEmails(emails)) return ResponseEntity.ok(new MessageResponse("Email deleted successfully!"));
+        if (emailService.deleteEmails(emails))
+            return ResponseEntity.ok(new MessageResponse("Email deleted successfully!"));
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new MessageResponse("Email could not be deleted!"));
     }
 

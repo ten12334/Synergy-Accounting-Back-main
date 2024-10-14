@@ -62,6 +62,7 @@ public class UserController {
         System.out.println("Authenticated User: " + SecurityContextHolder.getContext().getAuthentication().getName());
         return userService.loginUser(user);
     }
+
     @PostMapping("/request-password-reset")
     public ResponseEntity<MessageResponse> requestResetPassword(@RequestBody EmailObject email) {
         return userService.sendResetPasswordEmail(email.getEmail());

@@ -44,21 +44,21 @@ public class EmailService {
             helper.setText(
                     "<html>" +
                             "<head>" +
-                                "<style>" +
-                                    "h1 { text-align: center; font-family: 'Copperplate', 'serif'; padding-top: 75px; }" +
-                                    "h2 { text-align: center; font-family: 'Copperplate', 'serif'; }" +
-                                    "a { text-align: center; font-family: 'Copperplate', 'serif'; }" +
-                                    "div { text-align: center; }" +
-                                "</style>" +
+                            "<style>" +
+                            "h1 { text-align: center; font-family: 'Copperplate', 'serif'; padding-top: 75px; }" +
+                            "h2 { text-align: center; font-family: 'Copperplate', 'serif'; }" +
+                            "a { text-align: center; font-family: 'Copperplate', 'serif'; }" +
+                            "div { text-align: center; }" +
+                            "</style>" +
                             "</head>" +
                             "<body>" +
-                                "<div>" +
-                                    "<img src=\"cid:synergyaccounting\" alt=\"Synergy Accounting\" style=\"height:100px;\" />" +
-                                "</div>" +
-                                "<h2>" + "Click here to verify your account:" + "</h2>" +
-                                "<a href=\"" + verifyLink + "\">Verify my Account</a>" +
+                            "<div>" +
+                            "<img src=\"cid:synergyaccounting\" alt=\"Synergy Accounting\" style=\"height:100px;\" />" +
+                            "</div>" +
+                            "<h2>" + "Click here to verify your account:" + "</h2>" +
+                            "<a href=\"" + verifyLink + "\">Verify my Account</a>" +
                             "</body>" +
-                        "</html>",
+                            "</html>",
                     true);
             sendFormattedEmail(mm, helper);
         } catch (MessagingException e) {
@@ -75,21 +75,21 @@ public class EmailService {
             helper.setText(
                     "<html>" +
                             "<head>" +
-                                "<style>" +
-                                    "h1 { text-align: center; font-family: 'Copperplate', 'serif'; padding-top: 75px; }" +
-                                    "h2 { text-align: center; font-family: 'Copperplate', 'serif'; }" +
-                                    "a { text-align: center; font-family: 'Copperplate', 'serif'; }" +
-                                    "div { text-align: center; }" +
-                                "</style>" +
+                            "<style>" +
+                            "h1 { text-align: center; font-family: 'Copperplate', 'serif'; padding-top: 75px; }" +
+                            "h2 { text-align: center; font-family: 'Copperplate', 'serif'; }" +
+                            "a { text-align: center; font-family: 'Copperplate', 'serif'; }" +
+                            "div { text-align: center; }" +
+                            "</style>" +
                             "</head>" +
                             "<body>" +
-                                "<div>" +
-                                    "<img src=\"cid:synergyaccounting\" alt=\"Synergy Accounting\" style=\"height:100px;\" />" +
-                                "</div>" +
-                                "<h2>" + "Open this link to reset your password:" + "</h2>" +
+                            "<div>" +
+                            "<img src=\"cid:synergyaccounting\" alt=\"Synergy Accounting\" style=\"height:100px;\" />" +
+                            "</div>" +
+                            "<h2>" + "Open this link to reset your password:" + "</h2>" +
                             "<a href=\"" + resetLink + "\">Reset my Password</a>" +
                             "</body>" +
-                        "</html>",
+                            "</html>",
                     true);
             sendFormattedEmail(mm, helper);
         } catch (MessagingException e) {
@@ -126,23 +126,23 @@ public class EmailService {
             helper.setText(
                     "<html>" +
                             "<head>" +
-                                "<style>" +
-                                    "h1 { text-align: center; font-family: 'Copperplate', 'serif'; padding-top: 75px; }" +
-                                    "h2 { text-align: center; font-family: 'Copperplate', 'serif'; }" +
-                                    "a { text-align: center; font-family: 'Copperplate', 'serif'; }" +
-                                    "div { text-align: center; }" +
-                                "</style>" +
+                            "<style>" +
+                            "h1 { text-align: center; font-family: 'Copperplate', 'serif'; padding-top: 75px; }" +
+                            "h2 { text-align: center; font-family: 'Copperplate', 'serif'; }" +
+                            "a { text-align: center; font-family: 'Copperplate', 'serif'; }" +
+                            "div { text-align: center; }" +
+                            "</style>" +
                             "</head>" +
                             "<body>" +
-                                "<div>" +
-                                    "<img src=\"cid:synergyaccounting\" alt=\"Synergy Accounting\" style=\"height:100px;\" />" +
-                                "</div>" +
-                                "<h2><h2/>" +
-                                "<h2>" + "Your account is ready to be used!" + "</h2>" +
-                                "<h2><h2/>" +
-                                "<a href=\"https://synergyaccounting.app/login\">Click here to Login</a>" +
+                            "<div>" +
+                            "<img src=\"cid:synergyaccounting\" alt=\"Synergy Accounting\" style=\"height:100px;\" />" +
+                            "</div>" +
+                            "<h2><h2/>" +
+                            "<h2>" + "Your account is ready to be used!" + "</h2>" +
+                            "<h2><h2/>" +
+                            "<a href=\"https://synergyaccounting.app/login\">Click here to Login</a>" +
                             "</body>" +
-                         "</html>",
+                            "</html>",
                     true);
             sendFormattedEmail(mm, helper);
         } catch (MessagingException e) {
@@ -291,9 +291,9 @@ public class EmailService {
             System.out.println("User to String: " + userToString);
             System.out.println("User to String 2: " + userToString2);
 
-            User user = userRepository.findByUsername(userToString) != null?
-                        userRepository.findByUsername(userToString):
-                        userRepository.findByUsername(userToString2);
+            User user = userRepository.findByUsername(userToString) != null ?
+                    userRepository.findByUsername(userToString) :
+                    userRepository.findByUsername(userToString2);
 
             if (user == null) {
                 System.out.println("User not found.");

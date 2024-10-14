@@ -30,17 +30,17 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.csrfTokenRepository(csrfTokenRepository())
                         .ignoringRequestMatchers("/", "/login", "/register", "/forgot-password", "/api/csrf",
-                        "/api/users/login", "/api/users/request-password-reset", "/api/users/register"))
+                                "/api/users/login", "/api/users/request-password-reset", "/api/users/register"))
                 .addFilterAfter(new SessionDebugFilter(), UsernamePasswordAuthenticationFilter.class)
                 .authorizeHttpRequests(auth ->
                         auth.requestMatchers("/api/users/login", "/", "/login", "/register", "/api/users/register", "/verify", "/password-reset", "/confirm-user",
                                         "/api/users/verify", "/api/users/verify-request", "/api/users/password-reset", "/api/users/request-password-reset",
                                         "/api/users/request-confirm-user", "/api/users/confirm-user", "/api/csrf").permitAll()
-                        .requestMatchers("/dashboard", "/api/users/dashboard","/api/users/validate").authenticated()
+                                .requestMatchers("/dashboard", "/api/users/dashboard", "/api/users/validate").authenticated()
                                 .requestMatchers("/api/admin/**").hasRole("ADMINISTRATOR")
                                 .requestMatchers("/api/manager/**").hasAnyRole("ADMINISTRATOR", "MANAGER")
                                 .requestMatchers("/api/dashboard/**").hasAnyRole("USER", "ADMINISTRATOR", "MANAGER")
-                        .anyRequest().authenticated())
+                                .anyRequest().authenticated())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
                         .sessionFixation().migrateSession())
                 .logout(logout -> logout

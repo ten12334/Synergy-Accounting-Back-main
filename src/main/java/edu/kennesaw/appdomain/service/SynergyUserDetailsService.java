@@ -25,5 +25,5 @@ public class SynergyUserDetailsService implements UserDetailsService {
                 .password(user.getPassword())
                 .roles(user.getUserType().name())
                 .build();
-        }
+    }
 }

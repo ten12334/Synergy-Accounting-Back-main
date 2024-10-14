@@ -46,7 +46,7 @@ public class MailboxReaderService {
 
                 }
 
-            } catch (Exception e){
+            } catch (Exception e) {
                 System.err.println(e.getMessage());
             }
 
@@ -119,8 +119,9 @@ public class MailboxReaderService {
 
                     } else {
 
-                        if  (line.isEmpty()) {finalSpace = true; }
-                        else {
+                        if (line.isEmpty()) {
+                            finalSpace = true;
+                        } else {
                             line = reader.readLine();
                             continue;
                         }

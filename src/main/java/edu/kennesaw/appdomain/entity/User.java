@@ -89,9 +89,13 @@ public class User {
     }
 
     @JsonProperty("userid")
-    public Long getUserid() { return userid; }
+    public Long getUserid() {
+        return userid;
+    }
 
-    public void setUserType(UserType userType) { this.userType = userType; }
+    public void setUserType(UserType userType) {
+        this.userType = userType;
+    }
 
     public UserType getUserType() {
         return userType;
@@ -197,7 +201,9 @@ public class User {
         this.verificationCode = verificationCode;
     }
 
-    public String getVerificationCode() { return verificationCode; }
+    public String getVerificationCode() {
+        return verificationCode;
+    }
 
     public void setIsVerified(boolean isVerified) {
         this.isVerified = isVerified;

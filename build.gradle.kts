@@ -15,14 +15,14 @@ java {
 
 repositories {
     mavenCentral()
-    maven ("https://jitpack.io")
+    maven("https://jitpack.io")
 }
 
 dependencies {
     implementation("io.github.cdimascio:java-dotenv:5.2.2")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.session:spring-session-core")
-    implementation ("org.springframework.security:spring-security-crypto")
+    implementation("org.springframework.security:spring-security-crypto")
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-mail")

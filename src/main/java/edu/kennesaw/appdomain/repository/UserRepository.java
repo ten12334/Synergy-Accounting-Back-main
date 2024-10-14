@@ -11,7 +11,10 @@ import java.util.List;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
     User findByUsername(String username);
+
     User findByEmail(String email);
+
     User findByUserid(long userid);
+
     List<User> findAllByLastPasswordResetIsBetween(Date before, Date after);
 }

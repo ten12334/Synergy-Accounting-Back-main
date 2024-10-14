@@ -14,11 +14,11 @@ public class AccountService {
     @Autowired
     private AccountRepository accountRepository;
 
-    public Account createAccount(Account account) throws Exception{
-        if(accountRepository.findByAccountNumber(account.getAccountNumber()).isPresent()){
+    public Account createAccount(Account account) throws Exception {
+        if (accountRepository.findByAccountNumber(account.getAccountNumber()).isPresent()) {
             throw new Exception("Warning: Duplicate account number");
         }
-        if(accountRepository.findByAccountName(account.getAccountName()).isPresent()){
+        if (accountRepository.findByAccountName(account.getAccountName()).isPresent()) {
             throw new Exception("Warning: Duplicate account name");
         }
         account.setDateAdded(LocaleDateTime.now());
@@ -26,13 +26,20 @@ public class AccountService {
         return accountRepository.save(account);
 
     }
-    public Account deactivateAccount(Long id) throws Exception{
-        Account account = accountRepository.findById(id).orElseThrow() -> new Exception("Account not found"));
-        if(account.getBalance() > 0){
+
+    public Account deactivateAccount(Long id) throws Exception {
+        Account account = accountRepository.findById(id).orElseThrow() ->new Exception("Account not found"));
+        if (account.getBalance() > 0) {
             throw new Exception("Account with non-zero balance cannot be deactivated");
         }
+        Account beforeDeactivation = account;
         account.setActive(false);
-        return accountRepository.save(account);
+
+        Account deactivatedAccount = accountRepository.save(account);
+
+        //Having logs enabled
+        eventLogService.logEvent("DEACTIVATE", beforeDeactivation, deactivatedAccount, userId);
+        return deactivatedAccount;
     }
 
     public List<Account> getAllAccounts() {

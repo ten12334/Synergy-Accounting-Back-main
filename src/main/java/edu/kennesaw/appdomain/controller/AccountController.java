@@ -18,22 +18,25 @@ public class AccountController {
 
     @Autowired
     private AccountService accountService;
-    public ResponseEntity<Account> addAccount(@RequestBody Account account){
-        try{
+
+    public ResponseEntity<Account> addAccount(@RequestBody Account account) {
+        try {
             Account newAccount = accountService.createAccount(account);
-            return new ResponseEntity<>(null,HttpStatus.CREATED);
-        }catch(Exception e){
-            return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(null, HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
-    public ResponseEntity<Account> deactivateAccount(@PathVariable Long id){
-        try{
+
+    public ResponseEntity<Account> deactivateAccount(@PathVariable Long id) {
+        try {
             Account updateAccount = accountService.deactivateAccount(id);
             return new ResponseEntity<>(updatedAccount, HttpStatus.OK);
-        }catch (Exception e){
-            return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
+
     @PreAuthorize("hasRole('ADMINISTRATOR')")
     @GetMapping("/chart-of-accounts")
     public List<Account> getChartOfAccounts() {
